@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 /*QUESTIONS
-why useEffect in FetchPosts work? is that ok to do? should i put it into index.js?
+- why useEffect in FetchPosts work? is that ok to do? should i put it into index.js?
+- Ask about the fetch code that the API provides, is what i'm doing with .then ok or will
+i get points off for it.
 */
 
 import {
@@ -47,7 +49,7 @@ const App = () => {
             <Login setToken={setToken} setUser={setUser} BASE_URL={BASE_URL}/>
         </Route>
         <Route exact path="/posts/:postId">
-            <ViewPostDetails/>
+            <ViewPostDetails posts={posts} token={token}/>
         </Route>
     </div>
 }

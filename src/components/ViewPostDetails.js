@@ -1,7 +1,13 @@
 import React from 'react';
+import {useParams} from 'react-router';
+
 
 const ViewPostDetails = (props) => {
-    return <div>Hello World</div>
+    const {posts, token} = props;
+    const {postId} = useParams();
+    return <div>
+        Post ID: {postId}
+        </div>
 }
 
 //used by App in index.js
