@@ -5,12 +5,12 @@ const Login = (props) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const {BASE_URL, setToken, setUser} = props;
+    let localToken = '';
 
 
     return <div>
         <form onSubmit={async (event) => {
             event.preventDefault();
-
             const response = await fetch(`${BASE_URL}/users/login`, {
                 method: "POST",
                 headers: {
@@ -24,9 +24,9 @@ const Login = (props) => {
                 })
               }).then(response => response.json())
                 .then(result => {
-                  console.log(result);
                   if (result.data) {
                       setToken(result.data.token);
+                      localToken = result.data.token;
                       setUsername('')
                       setPassword('')
                   }else {
@@ -36,6 +36,17 @@ const Login = (props) => {
                   }
                 })
                 .catch(console.error);
+
+            const userResponse = await fetch(`${BASE_URL}/users/me`, {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localToken}`
+              },
+            }).then(response => response.json())
+              .then(result => {
+                setUser(result.data);
+              })
+              .catch(console.error);
 
 
         }}>
@@ -54,5 +65,5 @@ const Login = (props) => {
     </div>
 }
 
-
+//used in App by index.js
 export default Login;

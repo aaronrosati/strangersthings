@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-
+/*QUESTIONS
+why useEffect in FetchPosts work? is that ok to do? should i put it into index.js?
+*/
 
 import {
     FetchPosts,
     Register,
     Login,
-    AddPost
+    AddPost,
+    ViewPostDetails
 } from './components';
 
 const BASE_URL = "https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT";
@@ -28,13 +31,13 @@ const App = () => {
             <div id="navbar">
                 <Link to='/posts'>Posts </Link>
                 {token ? <Link to='/profile'>Profile </Link> : null}
-                {token ? <Link to='/logout'>Logout </Link> : null }
-                <Link to='/register'>register</Link>
-                <Link to='/login'>Login</Link>
+                {token ? <button onClick={() => setToken('')}>Logout</button> : null }
+                {!token ? <Link to='/register'>register</Link> : null}
+                {!token ? <Link to='/login'>Login</Link> : null}
             </div>
         }
         <Route exact path="/posts">
-            <AddPost token={token} fetchPosts={fetchPosts}/>
+            {token ? <AddPost token={token} fetchPosts={fetchPosts} BASE_URL={BASE_URL}/> : null}
             <FetchPosts token={token} BASE_URL={BASE_URL} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts}/>
         </Route>
         <Route exact path="/register">
@@ -42,6 +45,9 @@ const App = () => {
         </Route>
         <Route exact path ="/login">
             <Login setToken={setToken} setUser={setUser} BASE_URL={BASE_URL}/>
+        </Route>
+        <Route exact path="/posts/:postId">
+            <ViewPostDetails/>
         </Route>
     </div>
 }
