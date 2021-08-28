@@ -40,7 +40,7 @@ const App = () => {
         }
         <Route exact path="/posts">
             {token ? <AddPost token={token} fetchPosts={fetchPosts} BASE_URL={BASE_URL}/> : null}
-            <FetchPosts token={token} BASE_URL={BASE_URL} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts}/>
+            <FetchPosts user={user} token={token} BASE_URL={BASE_URL} posts={posts} fetchPosts={fetchPosts}/>
         </Route>
         <Route exact path="/register">
             <Register setToken={setToken} BASE_URL={BASE_URL}/>

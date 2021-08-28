@@ -28,11 +28,18 @@ const ViewPostDetails = (props) => {
 
     const {postId} = useParams();
     const post = posts.find(post => post._id === postId);
-    console.log(post);
 
     return <div className="single-post">
             <FetchSinglePost post={post}>
-
+                {
+                    token ? post.messages.map((message, index) => {
+                        return <div key={index} className='message-display'>
+                            <div> </div>
+                            <div>{message.content}</div>
+                            <div>Sent by {message.fromUser.username} At {message.createdAt}</div>
+                        </div>
+                    }) : null
+                }
             </FetchSinglePost>
         </div>
 }
