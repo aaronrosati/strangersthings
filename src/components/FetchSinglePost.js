@@ -17,5 +17,5 @@ const FetchSinglePost = (props) => {
 
 }
 
-//used by FetchPosts.js
+//used by FetchPosts.js and ViewPostDetails.js
 export default FetchSinglePost;

@@ -49,7 +49,7 @@ const App = () => {
             <Login setToken={setToken} setUser={setUser} BASE_URL={BASE_URL}/>
         </Route>
         <Route exact path="/posts/:postId">
-            <ViewPostDetails posts={posts} token={token}/>
+            <ViewPostDetails posts={posts} token={token} setPosts={setPosts} BASE_URL={BASE_URL}/>
         </Route>
     </div>
 }
