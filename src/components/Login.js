@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 
 const Login = (props) => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const {BASE_URL, setToken, setUser} = props;
+    const history = useHistory();
     let localToken = '';
-
 
     return <div>
         <form onSubmit={async (event) => {
@@ -29,6 +30,8 @@ const Login = (props) => {
                       localToken = result.data.token;
                       setUsername('')
                       setPassword('')
+                      history.push('/posts')
+
                   }else {
                       alert('Invalid username or password, If you don\'t have an account, use the register link to make one');
                       setUsername('')

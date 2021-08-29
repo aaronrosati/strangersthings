@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
 import {useParams} from 'react-router';
 import {default as FetchSinglePost} from './FetchSinglePost.js';
+import {default as MessageForm} from './MessageForm.js'
 
 
 const ViewPostDetails = (props) => {
-    const {posts, token, setPosts, BASE_URL} = props;
+    const {posts, token, setPosts, BASE_URL, user} = props;
 
     //we have to refetch posts with a token if we want to be able to see the attached
     //messages
@@ -40,6 +41,8 @@ const ViewPostDetails = (props) => {
                         </div>
                     }) : null
                 }
+                {token && user.username != post.author.username ? <MessageForm post={post}
+                    token={token} BASE_URL={BASE_URL}/> : null}
             </FetchSinglePost>
         </div>
 }

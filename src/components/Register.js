@@ -53,3 +53,4 @@ const Register = (props) => {
 
 //used in App by index.js
 export default Register;
+

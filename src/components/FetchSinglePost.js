@@ -1,7 +1,9 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 const FetchSinglePost = (props) => {
-    const {post, token, children} = props;
+    const {post, children} = props;
+    const history = useHistory();
 
     //try catch statement is here to prevent user from seeing an error screen if they
     //refresh their browser while looking at post details.
@@ -19,9 +21,10 @@ const FetchSinglePost = (props) => {
         </div>
     }
     catch {
-        return <div>An authentication error occurred, please log back in to view this post.</div>
+        alert ("An Authentication error occurred, please log in again")
+        history.push('/login');
+        return null;
     }
-
 }
 
 //used by FetchPosts.js and ViewPostDetails.js

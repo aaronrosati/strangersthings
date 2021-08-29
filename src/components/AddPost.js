@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 const AddPost = (props) => {
     const {token, fetchPosts, BASE_URL} = props;
@@ -7,6 +8,7 @@ const AddPost = (props) => {
     const [price, setPrice] = useState('');
     const [location, setLocation] = useState('');
     const [willDeliver, setWillDeliver] = useState(false);
+    const history = useHistory();
 
     return <div>
         <form className="new-post" onSubmit={async (event) => {
@@ -34,6 +36,7 @@ const AddPost = (props) => {
                 setPrice('');
                 setLocation('');
                 setWillDeliver(false);
+                history.push('/posts');
             })
             .catch(console.error);
 
