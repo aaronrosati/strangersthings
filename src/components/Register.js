@@ -24,25 +24,24 @@ const Register = (props) => {
                 }).then(response => response.json())
                   .then(result => {
                       if (result.data) {
-                        //setToken(result.data.token);
                         setUsername('')
                         setPassword('')
                       } else {
                           setUsername('')
                           setPassword('')
-                          alert('That username already exists, please try another one.')
+                          alert('Username already exists, please try again')
                       }
 
                   })
                   .catch(console.error);
             }}>
                 <div>
-                    <label>Enter Username: </label>
+                    <label>Username: </label>
                     <input type='text' placeholder='username' value={username}
                     onChange={(event) => setUsername(event.target.value)}></input>
                 </div>
                 <div>
-                    <label>Enter Password: </label>
+                    <label>Password: </label>
                     <input type='password' placeholder='password' value={password}
                     onChange={(event) => setPassword(event.target.value)}></input>
                 </div>
@@ -51,6 +50,5 @@ const Register = (props) => {
           </div>
 }
 
-//used in App by index.js
 export default Register;
 

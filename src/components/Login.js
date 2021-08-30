@@ -54,12 +54,12 @@ const Login = (props) => {
 
         }}>
             <div>
-                <label>Enter Username:</label>
+                <label>Username:</label>
                 <input type='text' name='password' value={username}
                 onChange={(event) => setUsername(event.target.value)}></input>
             </div>
             <div>
-                <label>Enter Password:</label>
+                <label>Password:</label>
                 <input type='password' name='password' value={password}
                 onChange={(event) => setPassword(event.target.value) }></input>
             </div>
@@ -68,5 +68,4 @@ const Login = (props) => {
     </div>
 }
 
-//used in App by index.js
 export default Login;

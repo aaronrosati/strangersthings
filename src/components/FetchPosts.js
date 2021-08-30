@@ -43,5 +43,4 @@ const FetchPosts = (props) => {
     </>
 }
 
-//used in App by index.js
 export default FetchPosts;

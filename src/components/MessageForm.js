@@ -34,5 +34,4 @@ const MessageForm = (props) => {
     </div>
 }
 
-//used by FetchPosts.js and ViewPostDetails.js
 export default MessageForm;

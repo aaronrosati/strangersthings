@@ -21,11 +21,10 @@ const FetchSinglePost = (props) => {
         </div>
     }
     catch {
-        alert ("An Authentication error occurred, please log in again")
+        alert ("Authentication error, please log in again")
         history.push('/login');
         return null;
     }
 }
 
-//used by FetchPosts.js and ViewPostDetails.js
 export default FetchSinglePost;

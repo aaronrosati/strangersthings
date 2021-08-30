@@ -7,8 +7,7 @@ import {default as MessageForm} from './MessageForm.js'
 const ViewPostDetails = (props) => {
     const {posts, token, setPosts, BASE_URL, user} = props;
 
-    //we have to refetch posts with a token if we want to be able to see the attached
-    //messages
+
     const fetchPostsWithToken = async (tokenParam, BASE_URL_PARAM) => {
         await fetch(`${BASE_URL_PARAM}/posts`, {
             method: "GET",
@@ -47,5 +46,4 @@ const ViewPostDetails = (props) => {
         </div>
 }
 
-//used by App in index.js
 export default ViewPostDetails;

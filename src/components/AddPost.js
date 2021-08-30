@@ -44,27 +44,27 @@ const AddPost = (props) => {
 
         }}>
             <div>
-                <label>Enter Post Title</label>
+                <label>Post Title</label>
                 <input type='text' placeholder='title' value={title}
                 onChange={(event) => setTitle(event.target.value)}></input>
             </div>
             <div>
-                <label>Enter Post Description</label>
+                <label>Post Description</label>
                 <input type='text' placeholder='description' value={description}
                 onChange={(event) => setDescription(event.target.value)}></input>
             </div>
             <div>
-                <label>Enter Item Price</label>
+                <label>Item Price</label>
                 <input type='text' placeholder='price' value={price}
                 onChange={(event) => setPrice(event.target.value)}></input>
             </div>
             <div>
-                <label>Enter Location</label>
+                <label>Location</label>
                 <input type='text' placeholder='location' value={location}
                 onChange={(event) => setLocation(event.target.value)}></input>
             </div>
             <div>
-                <label>Available For Delivery</label>
+                <label>Willing to deliver?</label>
                 <input type='checkbox' name='willdeliver' value='true'
                 onClick={(event) => setWillDeliver(!willDeliver)}></input>
             </div>
@@ -73,5 +73,4 @@ const AddPost = (props) => {
     </div>
 }
 
-//used in App by index.js
 export default AddPost;

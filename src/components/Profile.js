@@ -14,7 +14,7 @@ const Profile = (props) => {
         receivedMessages = user.messages.filter(message => message.fromUser.username != user.username)
         userPosts = user.posts;
     } catch (error) {
-        alert("There was an authentication error, please log in again.");
+        alert("Authentication error, please log in again.");
         history.push("/login");
     }
     return <div className='profile-message-display'>
@@ -32,10 +32,12 @@ const Profile = (props) => {
             </div>
             <h2>Your Posts</h2>
             <div className="user-posts">
-
+                {userPosts.map((message, index) => {
+                    return <div key={index}>{message.content}</div>
+                })}
             </div>
         </div>
 }
 
-//used by App in index.js
+
 export default Profile

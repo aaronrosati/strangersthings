@@ -1,10 +1,6 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter as Router, Link, Route, useHistory} from 'react-router-dom';
-/*QUESTIONS
-- Ask about the fetch code that the API provides, is what i'm doing with .then ok or will
-i get points off for it.
-*/
 
 import {
     FetchPosts,
