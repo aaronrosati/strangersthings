@@ -5,8 +5,7 @@ const FetchSinglePost = (props) => {
     const {post, children} = props;
     const history = useHistory();
 
-    //try catch statement is here to prevent user from seeing an error screen if they
-    //refresh their browser while looking at post details.
+    
     try {
         return <div key={post._id} className='post-body'>
             <h2>{post.title}</h2>
