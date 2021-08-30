@@ -45,7 +45,7 @@ const Register = (props) => {
                     <input type='password' placeholder='password' value={password}
                     onChange={(event) => setPassword(event.target.value)}></input>
                 </div>
-                <button type='submit'>Register!</button>
+                <button type='submit'>Register</button>
             </form>
           </div>
 }
