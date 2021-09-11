@@ -10,9 +10,10 @@ const Login = (props) => {
     let localToken = '';
 
     return <div>
+        <h2>Login</h2>
         <form onSubmit={async (event) => {
             event.preventDefault();
-            const response = await fetch(`${BASE_URL}/users/login`, {
+            await fetch(`${BASE_URL}/users/login`, {
                 method: "POST",
                 headers: {
                   'Content-Type': 'application/json'
@@ -28,19 +29,19 @@ const Login = (props) => {
                   if (result.data) {
                       setToken(result.data.token);
                       localToken = result.data.token;
-                      setUsername('')
-                      setPassword('')
-                      history.push('/posts')
+                      setUsername('');
+                      setPassword('');
+                      history.push('/posts');
 
                   }else {
-                      alert('Invalid username or password, If you don\'t have an account, use the register link to make one');
-                      setUsername('')
-                      setPassword('')
+                      alert('Invalid username or password, use the register to make one');
+                      setUsername('');
+                      setPassword('');
                   }
                 })
                 .catch(console.error);
 
-            const userResponse = await fetch(`${BASE_URL}/users/me`, {
+            await fetch(`${BASE_URL}/users/me`, {
               headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localToken}`
