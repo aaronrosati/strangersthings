@@ -5,25 +5,26 @@ const FetchSinglePost = (props) => {
     const {post, children} = props;
     const history = useHistory();
 
-    
+
     try {
         return <div key={post._id} className='post-body'>
-            <h2>{post.title}</h2>
+            <h3>{post.title}</h3>
             <div>{post.description}</div>
             <div>{post.price}</div>
             <div>{post.location}</div>
             <div>Posted On: {post.createdAt}</div>
-            <div>Posted By: {post.author.username}</div>
+            {post.author.username ? <div>Posted By: {post.author.username}</div> : null}
             {
                 children
             }
         </div>
     }
     catch {
-        alert ("Authentication error, please log in again")
+        alert ("An Authentication error occurred, please log in again")
         history.push('/login');
         return null;
     }
 }
+
 
 export default FetchSinglePost;
