@@ -64,7 +64,7 @@ const AddPost = (props) => {
                 onChange={(event) => setLocation(event.target.value)}></input>
             </div>
             <div>
-                <label>Willing to deliver?</label>
+                <label>Delivery?</label>
                 <input type='checkbox' name='willdeliver' value='true'
                 onClick={(event) => setWillDeliver(!willDeliver)}></input>
             </div>
