@@ -25,7 +25,7 @@ const FilterPosts = (props) => {
                 <label>Search By Title </label>
                 <input type='text' name='search-term' placeholder='search term' value={searchTitle}
                 onChange={(event) => setSearchTitle(event.target.value)}></input>
-                <button type='submit'>Reset Search Results</button>
+                <button type='submit'>Search</button>
             </form>
             <form onChange={filterPostsDescription} onSubmit={async(event) => {
                 event.preventDefault();
@@ -35,7 +35,7 @@ const FilterPosts = (props) => {
                 <label>Search By Description </label>
                 <input type='text' name='search-term' placeholder='search term' value={searchDescription}
                 onChange={(event) => setSearchDescription(event.target.value)}></input>
-                <button type='submit'>Reset Search Results</button>
+                <button type='submit'>Search</button>
             </form>
         </div>
 }
